@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualization Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a2e;
+            color: #f0f0f0;
+            overflow-x: hidden;
+        }
+        
+        header {
+            padding: 2rem;
+            text-align: center;
+            background-color: #162447;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #e94560;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #a4b0be;
+        }
+        
+        .gallery-container {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            padding: 2rem 1rem;
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: #e94560 #162447;
+            -webkit-overflow-scrolling: touch;
+            gap: 2rem;
+        }
+        
+        /* Customizing scrollbar for webkit browsers */
+        .gallery-container::-webkit-scrollbar {
+            height: 10px;
+        }
+        
+        .gallery-container::-webkit-scrollbar-track {
+            background: #162447;
+            border-radius: 10px;
+        }
+        
+        .gallery-container::-webkit-scrollbar-thumb {
+            background-color: #e94560;
+            border-radius: 10px;
+        }
+        
+        .gallery-item {
+            flex: 0 0 auto;
+            max-width: 90vw;
+            margin-right: 1rem;
+            position: relative;
+            transition: transform 0.3s ease;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+            display: block;
+            background-color: #0f3460;
+        }
+        
+        .gallery-item .title {
+            padding: 1rem;
+            background-color: #162447;
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: center;
+            margin: 1rem auto;
+            gap: 1rem;
+        }
+        
+        .nav-button {
+            background-color: #e94560;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-button:hover {
+            background-color: #ff6b81;
+            transform: scale(1.05);
+        }
+        
+        .nav-button:active {
+            transform: scale(0.98);
+        }
+        
+        .upload-section {
+            text-align: center;
+            padding: 2rem;
+            background-color: #162447;
+            margin: 2rem auto;
+            border-radius: 10px;
+            max-width: 600px;
+        }
+        
+        .instructions {
+            margin-bottom: 1.5rem;
+            color: #a4b0be;
+            line-height: 1.6;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #162447;
+            margin-top: 2rem;
+        }
+        
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .gallery-item {
+                max-width: 95vw;
+            }
+            
+            .nav-button {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Example items - you can remove these when you add your own */
+        .placeholder {
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #162447 0%, #1a1a2e 100%);
+            color: #a4b0be;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Visualization Gallery</h1>
+        <p class="subtitle">Scroll horizontally to view all visualizations</p>
+    </header>
+    
+    <main>
+        <div class="navigation">
+            <button class="nav-button" id="scroll-left">&#8592; Previous</button>
+            <button class="nav-button" id="scroll-right">Next &#8594;</button>
+        </div>
+        
+        <div class="gallery-container" id="gallery">
+            <!-- Example Gallery Item with Sample Image -->
+            <div class="gallery-item">
+                <img src="assets/distribution.png" alt="Website Analytics Dashboard">
+                <div class="title">2018 Website Analytics Dashboard</div>
+            </div>
+              <div class="gallery-item">
+                <img src="assets/distribution.png" alt="Website Analytics Dashboard">
+                <div class="title">2018 Website Analytics Dashboard</div>
+            </div>
+              <div class="gallery-item">
+                <img src="assets/distribution.png" alt="Website Analytics Dashboard">
+                <div class="title">2018 Website Analytics Dashboard</div>
+            </div>
+              <div class="gallery-item">
+                <img src="assets/distribution.png" alt="Website Analytics Dashboard">
+                <div class="title">2018 Website Analytics Dashboard</div>
+            </div>
+              <div class="gallery-item">
+                <img src="assets/distribution.png" alt="Website Analytics Dashboard">
+                <div class="title">2018 Website Analytics Dashboard</div>
+            </div>
+                
+        </div>
+        
+       
+    </main>
+    
+    <footer>
+        <p>Designed for hosting visualizations and images of various sizes</p>
+    </footer>
+    
+    <script>
+        // Navigation buttons functionality
+        document.getElementById('scroll-right').addEventListener('click', function() {
+            const gallery = document.getElementById('gallery');
+            gallery.scrollBy({ left: 400, behavior: 'smooth' });
+        });
+        
+        document.getElementById('scroll-left').addEventListener('click', function() {
+            const gallery = document.getElementById('gallery');
+            gallery.scrollBy({ left: -400, behavior: 'smooth' });
+        });
+        
+        // Add keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight') {
+                document.getElementById('scroll-right').click();
+            } else if (e.key === 'ArrowLeft') {
+                document.getElementById('scroll-left').click();
+            }
+        });
+    </script>
+</body>
+</html>
